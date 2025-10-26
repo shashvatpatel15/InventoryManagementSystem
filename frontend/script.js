@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data.forEach(item => {
             tableBody.innerHTML += `
                 <tr>
-                    <td>${item.product_id}</td><td>${item.name}</td><td>${item.qty}</td><td>$${item.price}</td><td>${item.warehouse_id}</td>
+                    <td>${item.product_id}</td><td>${item.name}</td><td>${item.qty}</td><td>₹${item.price}</td><td>${item.warehouse_id}</td>
                     <td>
                         <button class="btn-edit" data-id="${item.product_id}" data-type="products">Edit</button>
                         <button class="btn-delete" data-id="${item.product_id}" data-type="products">Delete</button>
