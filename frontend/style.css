@@ -1,0 +1,270 @@
+/* --- Global Styles & Fonts --- */
+:root {
+    --primary-color: #0052cc;
+    --primary-hover: #0041a3;
+    --danger-color: #de350b;
+    --danger-hover: #bf2600;
+    --edit-color: #ffab00;
+    --edit-hover: #ff8b00;
+    --grey-light: #f8f9fa;
+    --grey-dark: #495057;
+    --grey-border: #dee2e6;
+    --text-color: #212529;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--grey-light);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    color: var(--grey-dark);
+    font-weight: 600;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    padding: 0 24px;
+    border-bottom: 1px solid var(--grey-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    padding-right: 24px;
+    border-right: 1px solid var(--grey-border);
+}
+
+.logo-container h2 {
+    color: var(--primary-color);
+    margin: 0;
+    padding: 16px 0;
+}
+
+.main-nav {
+    display: flex;
+    padding-left: 16px;
+    /* This pushes the nav block to the far right */
+    margin-left: auto;
+}
+
+.nav-link {
+    padding: 20px 16px;
+    text-decoration: none;
+    color: var(--grey-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* --- Main Content & Page Layout --- */
+#main-content {
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.dashboard-page {
+    display: none;
+    grid-template-columns: 1fr 2fr; /* 1/3 for form, 2/3 for table */
+    gap: 24px;
+}
+
+.dashboard-page.active {
+    display: grid;
+}
+
+/* On smaller screens, stack the widgets */
+@media (max-width: 1024px) {
+    .dashboard-page {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Widget Styling --- */
+.widget {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--grey-border);
+}
+
+.widget-title {
+    padding: 20px 24px;
+    margin: 0;
+    border-bottom: 1px solid var(--grey-border);
+    font-size: 1.25rem;
+}
+
+/* --- Form Styling --- */
+form {
+    padding: 24px;
+}
+form div {
+    margin-bottom: 16px;
+}
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+form input[type="text"],
+form input[type="number"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+}
+.form-actions {
+    margin-top: 24px;
+}
+
+/* --- Button Styling --- */
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+.btn-secondary {
+    background-color: #e9ecef;
+    color: var(--text-color);
+    border: 1px solid var(--grey-border);
+}
+.btn-secondary:hover {
+    background-color: #ced4da;
+}
+.btn-search {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Search Container --- */
+.search-container {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--grey-border);
+    display: flex;
+    gap: 8px;
+}
+.search-container input {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* --- Table Styling --- */
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--grey-border);
+    text-align: left;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+table th {
+    background-color: var(--grey-light);
+    color: var(--grey-dark);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* Action Buttons in Table */
+.btn-edit {
+    background-color: var(--edit-color);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border: none; border-radius: 5px; cursor: pointer;
+    margin-right: 5px;
+}
+.btn-edit:hover { background-color: var(--edit-hover); }
+
+.btn-delete {
+    background-color: var(--danger-color);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border: none; border-radius: 5px; cursor: pointer;
+}
+.btn-delete:hover { background-color: var(--danger-hover); }
+
+/* --- "About Us" Page Styles --- */
+.about-us-layout {
+    /* Makes the "About" widget centered and not too wide */
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-us-content {
+    padding: 0 24px 24px 24px;
+    line-height: 1.6;
+}
+.about-us-content h3 {
+    margin-top: 24px;
+    border-bottom: 1px solid var(--grey-border);
+    padding-bottom: 8px;
+}
+.about-us-content ul {
+    padding-left: 20px;
+}
+.about-us-content li {
+    margin-bottom: 8px;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="logo-container">
+            <h2>Inventory Management System</h2>
+        </div>
+        <nav class="main-nav">
+            <a href="#" class="nav-link active" data-page="products">Products</a>
+            <a href="#" class="nav-link" data-page="suppliers">Suppliers</a>
+            <a href="#" class="nav-link" data-page="warehouses">Warehouses</a>
+            <a href="#" class="nav-link" data-page="purchase-orders">Purchase Orders</a>
+            <a href="#" class="nav-link" data-page="sales-orders">Sales Orders</a>
+
+            <a href="#" class="nav-link" data-page="about-us">About Us</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <div id="products-page" class="dashboard-page active">
+            <div class="widget form-widget">
+                <h2 class="widget-title" id="product-form-title">Add Product</h2>
+                <form id="product-form">
+                    <div><label for="product_id">Product ID:</label><input type="text" id="product_id" name="product_id"
+                            required></div>
+                    <div><label for="product_name">Product Name:</label><input type="text" id="product_name" name="name"
+                            required></div>
+                    <div><label for="product_qty">Quantity:</label><input type="number" id="product_qty" name="qty"
+                            required></div>
+                    <div><label for="product_price">Price:</label><input type="number" id="product_price" name="price"
+                            step="0.01" required></div>
+                    <div><label for="product_warehouse_id">Warehouse ID:</label><input type="number"
+                            id="product_warehouse_id" name="warehouse_id" required></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="product-form-submit">Add Product</button>
+                        <button type="button" class="btn btn-secondary" id="product-form-cancel"
+                            style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="widget table-widget">
+                <h2 class="widget-title">View Products</h2>
+                <div class="search-container">
+                    <input type="text" id="search-product-id" placeholder="Search by Product ID...">
+                    <button class="btn btn-search" data-type="products">Search</button>
+                    <button class="btn btn-secondary refresh-btn" data-type="products">View All</button>
+                </div>
+                <div class="table-container">
+                    <table id="products-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>W. ID</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="suppliers-page" class="dashboard-page">
+            <div class="widget form-widget">
+                <h2 class="widget-title" id="supplier-form-title">Add Supplier</h2>
+                <form id="supplier-form">
+                    <div><label for="supplier_id">Supplier ID:</label><input type="text" id="supplier_id"
+                            name="supplier_id" required></div>
+                    <div><label for="supplier_name">Supplier Name:</label><input type="text" id="supplier_name"
+                            name="name" required></div>
+                    <div><label for="supplier_phone">Phone No:</label><input type="tel" id="supplier_phone"
+                            name="phone_no"></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="supplier-form-submit">Add Supplier</button>
+                        <button type="button" class="btn btn-secondary" id="supplier-form-cancel"
+                            style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="widget table-widget">
+                <h2 class="widget-title">View Suppliers</h2>
+                <div class="search-container">
+                    <input type="text" id="search-supplier-id" placeholder="Search by Supplier ID...">
+                    <button class="btn btn-search" data-type="suppliers">Search</button>
+                    <button class="btn btn-secondary refresh-btn" data-type="suppliers">View All</button>
+                </div>
+                <div class="table-container">
+                    <table id="suppliers-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="warehouses-page" class="dashboard-page">
+            <div class="widget form-widget">
+                <h2 class="widget-title" id="warehouse-form-title">Add Warehouse</h2>
+                <form id="warehouse-form">
+                    <div><label for="warehouse_id">Warehouse ID:</label><input type="number" id="warehouse_id"
+                            name="warehouse_id" required></div>
+                    <div><label for="warehouse_name">Warehouse Name:</label><input type="text" id="warehouse_name"
+                            name="name" required></div>
+                    <div><label for="warehouse_location">Location:</label><input type="text" id="warehouse_location"
+                            name="location"></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="warehouse-form-submit">Add Warehouse</button>
+                        <button type="button" class="btn btn-secondary" id="warehouse-form-cancel"
+                            style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="widget table-widget">
+                <h2 class="widget-title">View Warehouses</h2>
+                <div class="search-container">
+                    <input type="text" id="search-warehouse-id" placeholder="Search by Warehouse ID...">
+                    <button class="btn btn-search" data-type="warehouses">Search</button>
+                    <button class="btn btn-secondary refresh-btn" data-type="warehouses">View All</button>
+                </div>
+                <div class="table-container">
+                    <table id="warehouses-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="purchase-orders-page" class="dashboard-page">
+            <div class="widget form-widget">
+                <h2 class="widget-title" id="po-form-title">Create Purchase Order</h2>
+                <form id="purchase-order-form">
+                    <div><label for="po_product_id">Product ID:</label><input type="text" id="po_product_id"
+                            name="product_id" required></div>
+                    <div><label for="po_supplier_id">Supplier ID:</label><input type="text" id="po_supplier_id"
+                            name="supplier_id" required></div>
+                    <div><label for="po_qty_req">Quantity:</label><input type="number" id="po_qty_req" name="qty_req"
+                            required></div>
+                    <div><label for="po_price">Price:</label><input type="number" id="po_price" name="price" step="0.01"
+                            required></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="po-form-submit">Create PO</button>
+                        <button type="button" class="btn btn-secondary" id="po-form-cancel"
+                            style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="widget table-widget">
+                <h2 class="widget-title">View Purchase Orders</h2>
+                <div class="search-container">
+                    <input type="text" id="search-po-id" placeholder="Search by PO ID...">
+                    <button class="btn btn-search" data-type="purchase-orders">Search</button>
+                    <button class="btn btn-secondary refresh-btn" data-type="purchase-orders">View All</button>
+                </div>
+                <div class="table-container">
+                    <table id="pos-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Prod ID</th>
+                                <th>Supp ID</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sales-orders-page" class="dashboard-page">
+            <div class="widget form-widget">
+                <h2 class="widget-title" id="so-form-title">Create Sales Order</h2>
+                <form id="sales-order-form">
+                    <div><label for="so_product_id">Product ID:</label><input type="text" id="so_product_id"
+                            name="product_id" required></div>
+                    <div><label for="so_supplier_id">Supplier ID:</label><input type="text" id="so_supplier_id"
+                            name="supplier_id" required></div>
+                    <div><label for="so_qty">Quantity:</label><input type="number" id="so_qty" name="qty" required>
+                    </div>
+                    <div><label for="so_price">Price:</label><input type="number" id="so_price" name="price" step="0.01"
+                            required></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="so-form-submit">Create SO</button>
+                        <button type="button" class="btn btn-secondary" id="so-form-cancel"
+                            style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="widget table-widget">
+                <h2 class="widget-title">View Sales Orders</h2>
+                <div class="search-container">
+                    <input type="text" id="search-so-id" placeholder="Search by SO ID...">
+                    <button class="btn btn-search" data-type="sales-orders">Search</button>
+                    <button class="btn btn-secondary refresh-btn" data-type="sales-orders">View All</button>
+                </div>
+                <div class="table-container">
+                    <table id="sos-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Prod ID</th>
+                                <th>Supp ID</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-us-page" class="dashboard-page about-us-layout">
+            <div class="widget form-widget">
+                <h2 class="widget-title">About This Project</h2>
+                <div class="about-us-content">
+                    <p>DBMS Project - Using MySQL</p>
+                    <p>It performs all CRUD (Create, Read, Update, Delete) operations, features a professional dashboard
+                        layout.</p>
+                    <p>Made By <b>Error 404</b></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
